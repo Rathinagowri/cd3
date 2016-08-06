@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+
+}
+
+table tr:nth-child(odd) {
+  background-color: orange;
+}
+table tr:nth-child(even) {
+  background-color: red;
+}
+</style>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<table>
+<tr>
+<td> Name </td>
+<td> Age </td>
+<td> Employee id </td>
+<td> Salary </td>
+</tr>
+  <tr>
+    <td>{{ Name }}</td>
+<td>{{ Age }}</td>
+   
+<td>{{ Emp  }}</td>
+<td>{{ Salary  }}</td> </tr>
+<tr>
+    <td>{{ Name1}}</td>
+<td>{{ Age1}}</td>
+   
+<td>{{ Emp1 }}</td>
+<td>{{ Salary1 }}</td>
+   
+  </tr>
+</table>
+</div>
+<script>
+
+var app = angular.module('myApp', []);
+app.factory('display', function() {
+var fac = {};
+   fac.name = "srivatsan"; 
+ fac.age = "36"; 
+fac.empid =123457;
+fac.sal=9000000;
+fac.name1="Arun";
+fac.age1="38";
+fac.empid1=123468;
+fac.sal1=5000000;
+return fac;
+
+});
+
+app.controller('myCtrl', function($scope, display) {
+$scope.Name = display.name;
+$scope.Age = display.age;
+$scope.Emp = display.empid;
+$scope.Salary = display.sal;
+$scope.Name1 = display.name1;
+$scope.Age1 = display.age1;
+$scope.Emp1 = display.empid1;
+$scope.Salary1 = display.sal1;
+
+});
+
+</script>
+
+</body>
+</html>
+
+
